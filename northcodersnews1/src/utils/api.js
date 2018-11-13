@@ -3,9 +3,15 @@ import axios from "axios";
 const BASE_URL = "https://peaceful-temple-55135.herokuapp.com/api";
 const extract = 150;
 
-export const getAllArticles = async () => {
-  const { data } = await axios.get(`${BASE_URL}/articles`);
-  return data.articles.map(articles => ({
+export const getAllArticles = async topicFilter => {
+  let result = {};
+  if (topicFilter === "") {
+    result = await axios.get(`${BASE_URL}/articles`);
+  } else {
+    result = await axios.get(`${BASE_URL}/topics/${topicFilter}/articles`);
+  }
+
+  return result.data.articles.map(articles => ({
     id: articles._id,
     votes: articles.votes,
     title: articles.title,
@@ -36,4 +42,9 @@ export const getArticle = async id => {
     },
     commentCount: articleToDisplay.commentCount
   };
+};
+
+export const newLogin = async username => {
+  const { data } = await axios.get(`${BASE_URL}/users/${username}`);
+  return data.user;
 };

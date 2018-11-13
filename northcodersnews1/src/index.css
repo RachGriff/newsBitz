@@ -16,6 +16,10 @@ code {
 .header-area {
   grid-area: header;
   background-color: pink;
+  text-align: center;
+  font: 1em sans-serif;
+  font-size: 30pt;
+  padding: 5px;
 }
 .main-area {
   grid-area: main;

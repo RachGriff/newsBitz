@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../shared/header/header";
+import Header from "../shared/header";
 import Article from "./article";
 import { getArticle } from "../../utils/api";
 
