@@ -16,10 +16,10 @@ class Home extends Component {
         <div className={"header-area"}>
           <Header
             onLogin={this.props.onLogin}
-            class
-            Home
-            extends
-            Component
+            // class
+            // Home
+            // extends
+            // Component
             user={this.props.user}
             onLogout={this.props.onLogout}
           />

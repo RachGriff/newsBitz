@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Home from "./components/home/home";
 import ArticleDetail from "./components/articleDetail/articleDetail";
-
 import { newLogin } from "./utils/api";
 
 class App extends Component {
@@ -18,7 +17,12 @@ class App extends Component {
           onLogin={this.login}
           onLogout={this.logout}
         />
-        <ArticleDetail path="/article/:articleId" user={this.state.user} />
+        <ArticleDetail
+          path="/article/:articleId"
+          user={this.state.user}
+          onLogin={this.login}
+          onLogout={this.logout}
+        />
       </Router>
     );
   }

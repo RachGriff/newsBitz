@@ -20,4 +20,4 @@ const Article = ({ article, onVote }) => {
   );
 };
 export default Article;
-//not props.article.comments in CommentList because we havae deconstr
+//remember -not props.article.comments in CommentList because have deconstr

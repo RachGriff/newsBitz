@@ -70,6 +70,14 @@ export const addArticle = async newArticle => {
   };
 };
 
+export const addComment = async newComment => {
+  console.log(newComment);
+  const { data } = await axios.post(
+    `${BASE_URL}/articles/${newComment.belongs_to}/comments`,
+    newComment
+  );
+  return data.comment;
+};
 export const voteOnArticle = async (id, direction) => {
   await axios.patch(`${BASE_URL}/articles/${id}?vote=${direction}`);
 };

@@ -58,9 +58,9 @@ class AddNewArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let article = this.state;
+    let article = { ...this.state };
     if (
-      //make this dry - func to check if input.trim ===""||null||!input etc
+      //make this drier? - func to check if input.trim ===""||null||!input etc
       article.title.trim() === "" ||
       article.belongs_to.trim() === "" ||
       article.body.trim() === ""

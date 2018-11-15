@@ -41,7 +41,7 @@ code {
 }
 .sidebar-area {
   grid-area: sidebar;
-  background-color: purple;
+  background-color: rgb(215, 231, 142);
 }
 
 .container {
