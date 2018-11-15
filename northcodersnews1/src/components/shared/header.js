@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import Login from "./login";
 import Logout from "./logout";
-// import Fragment from "react";
+import logo from "../../resources/images/logo.png";
 
 const Header = ({ user, onLogin, onLogout }) => {
   return (
-    <React.Fragment>
-      <div className="header-area">NewsBitz</div>
+    <div className="header">
+      <img className="logo" src={logo} alt="newsBitz sloth logo" />
+
+      <div className="title">newsBitz</div>
       <div className="loginLogout">
         {!user && <Login onLogin={onLogin} />}
-        {user && <Logout onLogout={onLogout} />}
+        {user && <Logout onLogout={onLogout} user={user} />}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
