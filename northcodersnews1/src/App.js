@@ -3,10 +3,12 @@ import { Router } from "@reach/router";
 import Home from "./components/home/home";
 import ArticleDetail from "./components/articleDetail/articleDetail";
 import { newLogin } from "./utils/api";
-
+import ErrorHandler from "./error";
+// import navigate from "@reach/router";
 class App extends Component {
   state = {
-    user: null
+    user: null,
+    error: null
   };
   render() {
     return (
@@ -23,6 +25,7 @@ class App extends Component {
           onLogin={this.login}
           onLogout={this.logout}
         />
+        <ErrorHandler path="/error/" error={this.state.error} />
       </Router>
     );
   }

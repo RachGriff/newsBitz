@@ -1,6 +1,6 @@
 import React from "react";
 import CommentList from "./commentList";
-const Article = ({ article, onVote }) => {
+const Article = ({ user, article, onVote, onCommentDelete }) => {
   return (
     <div>
       <div>
@@ -15,7 +15,12 @@ const Article = ({ article, onVote }) => {
         Created By:{article.createdBy.name}
         <br />
       </div>
-      <CommentList comments={article.comments} onVote={onVote} />
+      <CommentList
+        comments={article.comments}
+        onVote={onVote}
+        onCommentDelete={onCommentDelete}
+        user={user}
+      />
     </div>
   );
 };

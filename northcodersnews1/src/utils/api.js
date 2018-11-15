@@ -41,8 +41,7 @@ export const getArticle = async id => {
       name: articleToDisplay.created_by.name,
       avatarURL: articleToDisplay.created_by.avatar_url
     },
-    comments: commentsResult.data.comments,
-    commentCreatedBy: commentsResult.data.comments.created_by
+    comments: commentsResult.data.comments
   };
 };
 
@@ -78,10 +77,15 @@ export const addComment = async newComment => {
   );
   return data.comment;
 };
+
 export const voteOnArticle = async (id, direction) => {
   await axios.patch(`${BASE_URL}/articles/${id}?vote=${direction}`);
 };
 
 export const voteOnComment = async (id, direction) => {
   await axios.patch(`${BASE_URL}/comments/${id}?vote=${direction}`);
+};
+
+export const deleteComment = async id => {
+  await axios.delete(`${BASE_URL}/comments/${id}`);
 };

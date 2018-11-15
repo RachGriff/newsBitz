@@ -40,11 +40,10 @@ class AddNewComment extends Component {
       comment.created_by = this.props.user._id;
       comment.belongs_to = this.props.belongs_to;
       addComment(comment).then(newComment => {
-        console.log(newComment);
-        newComment.commentCreatedBy = {};
-        newComment.commentCreatedBy.id = this.props.user_id;
-        newComment.commentCreatedBy.name = this.props.user.username;
-
+        newComment.created_by = {
+          id: this.props.user._id,
+          username: this.props.user.username
+        };
         this.props.onCreateComment(newComment);
         this.setState({
           body: ""

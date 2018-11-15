@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SingleComment from "./comment";
+import SingleComment from "./singleComment";
 
-const CommentList = props => {
-  if (!props.comments) return "";
+const CommentList = ({ user, onVote, onCommentDelete, comments }) => {
+  if (!comments) return "";
   return (
     <div className="commentList">
-      {props.comments.map((comment, index) => {
+      {comments.map((comment, index) => {
         return (
-          <SingleComment comment={comment} key={index} onVote={props.onVote} />
+          <SingleComment
+            user={user}
+            comment={comment}
+            key={index}
+            onVote={onVote}
+            onCommentDelete={onCommentDelete}
+          />
         );
       })}
     </div>
@@ -16,7 +22,10 @@ const CommentList = props => {
 };
 
 CommentList.propsTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array,
+  user: PropTypes.object,
+  onVote: PropTypes.func,
+  onCommentDelete: PropTypes.func
 };
 
 export default CommentList;

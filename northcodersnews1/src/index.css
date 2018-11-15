@@ -47,7 +47,7 @@ code {
 .container {
   display: grid;
   grid-template-columns: auto 30%;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 150px auto;
   grid-template-areas:
     "header header header header"
     "main main main sidebar";

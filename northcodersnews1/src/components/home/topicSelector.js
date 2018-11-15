@@ -7,7 +7,7 @@ const TopicSelector = props => {
   };
 
   return (
-    <select onChange={handleChange}>
+    <select className="dropDown" onChange={handleChange}>
       <option value="">Article Topics</option>
       {topics.map((topic, i) => {
         return (

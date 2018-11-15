@@ -5,6 +5,8 @@ import { getAllArticles, voteOnArticle } from "../../utils/api";
 import TopicSelector from "./topicSelector";
 import PropTypes from "prop-types";
 import AddNewArticle from "./addArticle";
+// import navigate from "@reach/router";
+
 class Home extends Component {
   state = {
     articles: [],
@@ -16,10 +18,6 @@ class Home extends Component {
         <div className={"header-area"}>
           <Header
             onLogin={this.props.onLogin}
-            // class
-            // Home
-            // extends
-            // Component
             user={this.props.user}
             onLogout={this.props.onLogout}
           />
@@ -70,6 +68,7 @@ class Home extends Component {
     voteOnArticle(id, direction);
   };
 }
+
 Home.propTypes = {
   user: PropTypes.object,
   onLogin: PropTypes.func,
