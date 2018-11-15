@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import ArticleList from "./articleList/articleList";
 import Header from "../shared/header";
-import { getAllArticles } from "../../utils/api";
+import { getAllArticles, voteOnArticle } from "../../utils/api";
 import TopicSelector from "./topicSelector";
 import PropTypes from "prop-types";
-
+import AddNewArticle from "./addArticle";
 class Home extends Component {
   state = {
     articles: [],
@@ -16,6 +16,10 @@ class Home extends Component {
         <div className={"header-area"}>
           <Header
             onLogin={this.props.onLogin}
+            class
+            Home
+            extends
+            Component
             user={this.props.user}
             onLogout={this.props.onLogout}
           />
@@ -24,11 +28,16 @@ class Home extends Component {
           <ArticleList
             show={!this.state.loading}
             articles={this.state.articles}
+            onVote={this.onArticleVote}
           />
         </div>
 
         <div className="sidebar-area" user={this.props.user}>
           <TopicSelector onTopicSelect={this.getArticlesForTopic} />
+          <AddNewArticle
+            user={this.props.user}
+            onCreateArticle={this.onCreateArticle}
+          />
         </div>
       </div>
     );
@@ -41,6 +50,7 @@ class Home extends Component {
       });
     });
   }
+
   getArticlesForTopic = topicFilter => {
     getAllArticles(topicFilter).then(articles => {
       this.setState({
@@ -49,8 +59,17 @@ class Home extends Component {
       });
     });
   };
-}
 
+  onCreateArticle = article => {
+    this.setState({
+      articles: [article, ...this.state.articles]
+    });
+  };
+
+  onArticleVote = (id, direction) => {
+    voteOnArticle(id, direction);
+  };
+}
 Home.propTypes = {
   user: PropTypes.object,
   onLogin: PropTypes.func,

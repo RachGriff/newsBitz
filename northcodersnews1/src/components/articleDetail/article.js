@@ -1,20 +1,23 @@
 import React from "react";
-
-const Article = ({ article }) => {
-  console.log(article, "its here");
+import CommentList from "./commentList";
+const Article = ({ article, onVote }) => {
   return (
     <div>
-      Votes:{article.votes}
-      <br />
-      Title:{article.title}
-      <br />
-      Topic:{article.topic}
-      <br />
-      Article:{article.article}
-      <br />
-      Created By:{article.createdBy.name}
-      <br />
+      <div>
+        Votes:{article.votes}
+        <br />
+        Title:{article.title}
+        <br />
+        Topic:{article.topic}
+        <br />
+        Article:{article.article}
+        <br />
+        Created By:{article.createdBy.name}
+        <br />
+      </div>
+      <CommentList comments={article.comments} onVote={onVote} />
     </div>
   );
 };
 export default Article;
+//not props.article.comments in CommentList because we havae deconstr

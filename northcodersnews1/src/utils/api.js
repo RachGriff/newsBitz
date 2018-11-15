@@ -26,8 +26,9 @@ export const getAllArticles = async topicFilter => {
 };
 
 export const getArticle = async id => {
-  const { data } = await axios.get(`${BASE_URL}/articles/${id}`);
-  const articleToDisplay = data.article;
+  const articleResult = await axios.get(`${BASE_URL}/articles/${id}`);
+  const commentsResult = await axios.get(`${BASE_URL}/articles/${id}/comments`);
+  const articleToDisplay = articleResult.data.article;
   return {
     id: articleToDisplay._id,
     votes: articleToDisplay.votes,
@@ -40,11 +41,39 @@ export const getArticle = async id => {
       name: articleToDisplay.created_by.name,
       avatarURL: articleToDisplay.created_by.avatar_url
     },
-    commentCount: articleToDisplay.commentCount
+    comments: commentsResult.data.comments,
+    commentCreatedBy: commentsResult.data.comments.created_by
   };
 };
 
 export const newLogin = async username => {
   const { data } = await axios.get(`${BASE_URL}/users/${username}`);
   return data.user;
+};
+
+export const addArticle = async newArticle => {
+  const { data } = await axios.post(
+    `${BASE_URL}/topics/${newArticle.belongs_to}/articles`,
+    newArticle
+  );
+  return {
+    id: data.article._id,
+    votes: 0,
+    title: data.article.title,
+    shortDescription: data.article.body.slice(0, extract),
+    topic: data.article.belongs_to,
+    createdBy: {
+      id: 0,
+      name: ""
+    },
+    commentCount: 0
+  };
+};
+
+export const voteOnArticle = async (id, direction) => {
+  await axios.patch(`${BASE_URL}/articles/${id}?vote=${direction}`);
+};
+
+export const voteOnComment = async (id, direction) => {
+  await axios.patch(`${BASE_URL}/comments/${id}?vote=${direction}`);
 };

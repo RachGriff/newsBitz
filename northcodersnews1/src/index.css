@@ -16,14 +16,28 @@ code {
 .header-area {
   grid-area: header;
   background-color: pink;
-  text-align: center;
+  text-align: left;
   font: 1em sans-serif;
   font-size: 30pt;
   padding: 5px;
 }
+.loginLogout {
+  font-size: 15pt;
+  float: right;
+  padding: 10px;
+  margin-right: 25px;
+}
+
 .main-area {
   grid-area: main;
   background-color: rgb(206, 240, 240);
+}
+.article-body {
+  margin: 0 auto;
+  background-color: white;
+  width: 800px;
+  border: 1px solid black;
+  padding: 5px;
 }
 .sidebar-area {
   grid-area: sidebar;
@@ -33,7 +47,7 @@ code {
 .container {
   display: grid;
   grid-template-columns: auto 30%;
-  grid-template-rows: 80px auto;
+  grid-template-rows: 100px auto;
   grid-template-areas:
     "header header header header"
     "main main main sidebar";
@@ -42,8 +56,24 @@ code {
 }
 
 .articleOverview {
+  margin: auto;
   background-color: white;
-  width: 400px;
+  width: 600px;
   border: 1px solid black;
   padding: 5px;
+}
+
+.singleComment {
+  margin: 0 auto;
+  background-color: white;
+  width: 800px;
+  border: 1px solid black;
+  padding: 5px;
+}
+.articleList-commentCount {
+  text-align: right;
+}
+
+.articleList {
+  width: 100%;
 }

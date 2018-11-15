@@ -2,14 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import Login from "./login";
 import Logout from "./logout";
+// import Fragment from "react";
 
 const Header = ({ user, onLogin, onLogout }) => {
   return (
-    <div>
-      {!user && <Login onLogin={onLogin} />}
-      {user && <Logout onLogout={onLogout} />}
-      NCNews Bitz
-    </div>
+    <React.Fragment>
+      <div className="header-area">NewsBitz</div>
+      <div className="loginLogout">
+        {!user && <Login onLogin={onLogin} />}
+        {user && <Logout onLogout={onLogout} />}
+      </div>
+    </React.Fragment>
   );
 };
 

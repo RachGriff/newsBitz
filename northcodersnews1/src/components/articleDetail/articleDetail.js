@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../shared/header";
 import Article from "./article";
-import { getArticle } from "../../utils/api";
+import { getArticle, voteOnComment } from "../../utils/api";
 
 class ArticleDetail extends Component {
   state = {
@@ -15,20 +15,25 @@ class ArticleDetail extends Component {
           <Header />
         </div>
         <div className={"main-area"}>
-          {!this.state.loading && <Article article={this.state.article} />}
+          {!this.state.loading && (
+            <Article article={this.state.article} onVote={this.onCommentVote} />
+          )}
         </div>
+
         <div className="sidebar-area">sidebar</div>
       </div>
     );
   }
   componentDidMount() {
-    console.log(this.props.articleId + "id");
     getArticle(this.props.articleId).then(article => {
       this.setState({
         article: article,
         loading: false
       });
     });
+  }
+  onCommentVote(id, direction) {
+    voteOnComment(id, direction);
   }
 }
 

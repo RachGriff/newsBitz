@@ -7,7 +7,13 @@ const ArticleList = props => {
     return (
       <div className="articleList">
         {props.articles.map((articles, index) => {
-          return <ArticleOverview article={articles} key={index} />;
+          return (
+            <ArticleOverview
+              article={articles}
+              key={index}
+              onVote={props.onVote}
+            />
+          );
         })}
       </div>
     );
