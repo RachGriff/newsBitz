@@ -1,5 +1,7 @@
 #Project Title<br/>
 northcodersNews is an API created to serve news articles on a range of topics. These articles have comments associated with them, along with user information linked to these comments. Functionality includes opportunities to view all articles, view comments associated with articles, search articles by topic and add articles and comments when logged in. The user is also able to vote on articles and comments. Userers can delete comments that are associated with their username.
+You can see the site hosted at
+`https://dazzling-shockley-54897d.netlify.com`
 
 #Getting Started<br/>
 To begin, clone the project, run `npm install`, and use npm start to run the app locally.
