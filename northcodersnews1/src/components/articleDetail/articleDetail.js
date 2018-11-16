@@ -3,6 +3,7 @@ import Header from "../shared/header";
 import Article from "./article";
 import { getArticle, voteOnComment, deleteComment } from "../../utils/api";
 import AddNewComment from "./addComment";
+import SidebarHeader from "../shared/sidebarHeader";
 
 class ArticleDetail extends Component {
   state = {
@@ -30,6 +31,7 @@ class ArticleDetail extends Component {
           )}
         </div>
         <div className={"sidebar-area"}>
+          <SidebarHeader title={"write a new comment"} />
           <AddNewComment
             user={this.props.user}
             onCreateComment={this.onCreateComment}

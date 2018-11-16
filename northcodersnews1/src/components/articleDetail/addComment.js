@@ -5,25 +5,28 @@ class AddNewComment extends Component {
   state = { body: "" };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        {!this.props.user && <span>Please log in</span>}
-        <br />
-        <label htmlFor="body" />
-        <p>
-          <br />
-          Comment
-          <textarea
-            rows="5"
-            cols="50"
-            disabled={!this.props.user}
-            value={this.state.body}
-            onChange={this.handleChange}
-            type="text-area"
-            id="body"
-          />
-        </p>
-        <button disabled={!this.props.user}>Add a comment!</button>
-      </form>
+      <div className="addCommentContainer">
+        <form onSubmit={this.handleSubmit}>
+          <div>{!this.props.user && <span>Please log in</span>}</div>
+          <div>
+            <label htmlFor="body" />
+            Comment
+          </div>
+          <div>
+            <textarea
+              rows="15"
+              cols="50"
+              disabled={!this.props.user}
+              value={this.state.body}
+              onChange={this.handleChange}
+              type="text-area"
+              id="body"
+            />
+          </div>
+
+          <button disabled={!this.props.user}>Add a comment!</button>
+        </form>
+      </div>
     );
   }
   handleChange = event => {

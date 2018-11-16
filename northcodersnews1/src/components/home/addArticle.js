@@ -11,43 +11,43 @@ class AddNewArticle extends Component {
   render() {
     //could use const disabled = !this.props.user; then use disabled in place of {!this.props.user}
     return (
-      <form onSubmit={this.handleSubmit}>
-        {!this.props.user && <span>Please log in</span>}
-        <br />
-        <label htmlFor="Title" />
-        <p>
-          <br />
-          Title
-          <input
-            disabled={!this.props.user}
-            value={this.state.title}
-            onChange={this.handleChange}
-            type="text"
-            id="title"
-          />
-        </p>
-        <label htmlFor="Topic" />
-        <p>
-          <br />
-          Topic
+      <div className="addArticle">
+        <form onSubmit={this.handleSubmit}>
+          {!this.props.user && <div>Please log in</div>}
+          <div>
+            <label htmlFor="title"> what's it about?</label>
+          </div>
+          <div>
+            <input
+              disabled={!this.props.user}
+              value={this.state.title}
+              onChange={this.handleChange}
+              type="text"
+              id="title"
+            />
+          </div>
+          <div>
+            <label htmlFor="topic">what's the topic?</label>
+          </div>
           <TopicSelector onTopicSelect={this.onChangeTopic} />
-        </p>
-        <label htmlFor="Text" />
-        <p>
-          <br />
-          Text
-          <textarea
-            rows="10"
-            cols="50"
-            disabled={!this.props.user}
-            value={this.state.body}
-            onChange={this.handleChange}
-            type="text-area"
-            id="body"
-          />
-        </p>
-        <button disabled={!this.props.user}>Add an article!</button>
-      </form>
+          <div>
+            <label htmlFor="body">your article</label>
+          </div>
+
+          <div>
+            <textarea
+              rows="10"
+              cols="50"
+              disabled={!this.props.user}
+              value={this.state.body}
+              onChange={this.handleChange}
+              type="text-area"
+              id="body"
+            />
+          </div>
+          <button disabled={!this.props.user}>Add an article!</button>
+        </form>
+      </div>
     );
   }
   handleChange = event => {

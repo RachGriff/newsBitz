@@ -5,25 +5,29 @@ import Vote from "../../shared/vote";
 const ArticleOverview = props => {
   return (
     <div className={"articleOverview"}>
-      <Link to={"article/" + props.article.id}> {props.article.title}</Link>
-      <br />
-      <React.Fragment>
-        <div>
-          Author: {props.article.createdBy.name}{" "}
-          <div className="articleList-commentCount">
-            {" "}
-            Comment count:
-            {props.article.commentCount}
-          </div>
-        </div>{" "}
-      </React.Fragment>
-      <Vote
-        id={props.article.id}
-        numberOfVotes={props.article.votes}
-        onVote={props.onVote}
-      />
-      <br />
-      {props.article.shortDescription}...
+      <Link className="articleOverviewTitle" to={"article/" + props.article.id}>
+        {" "}
+        {props.article.title}
+      </Link>
+      <div className="articleOverviewContent">
+        {props.article.shortDescription}...
+      </div>
+      <div className="articleOverviewFooter">
+        <div className="articleOverviewFooterOne">
+          <Vote
+            id={props.article.id}
+            numberOfVotes={props.article.votes}
+            onVote={props.onVote}
+          />
+        </div>
+        <div className="articleOverviewFooterTwo">
+          Author: {props.article.createdBy.name}
+        </div>
+        <div className="articleOverviewFooterThree">
+          Comment count:
+          {props.article.commentCount}
+        </div>
+      </div>
     </div>
   );
 };

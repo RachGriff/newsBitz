@@ -95,7 +95,7 @@ code {
 }
 .sidebar-area {
   grid-area: sidebar;
-  background-color: rgb(215, 231, 142);
+  background-color: rgb(247, 233, 218);
 }
 
 .container {
@@ -112,11 +112,38 @@ code {
 }
 
 .articleOverview {
-  margin: auto;
+  margin: 10px auto 10px auto;
   background-color: white;
   width: 600px;
   border: 1px solid black;
   padding: 5px;
+  box-shadow: 2px 2px #888888;
+}
+.articleOverviewTitle {
+  font-size: 20px;
+}
+.articleOverviewContent {
+  padding: 5px;
+}
+.articleOverviewFooter {
+  margin-top: 10px;
+  border-top: 1px solid black;
+  height: 20px;
+  font-size: 12px;
+}
+
+.articleOverviewFooterOne {
+  float: left;
+  margin-right: 10px;
+  padding-top: 2px;
+}
+.articleOverviewFooterTwo {
+  float: left;
+  padding-top: 7px;
+}
+.articleOverviewFooterThree {
+  float: right;
+  padding-top: 7px;
 }
 
 .singleComment {
@@ -128,6 +155,14 @@ code {
 }
 .articleList-commentCount {
   text-align: right;
+}
+.articleDetailContainer {
+  margin: 0 auto;
+  background-color: white;
+  width: 800px;
+  border: 1px solid black;
+  padding: 5px;
+  min-height: 300px;
 }
 
 .articleList {
@@ -147,4 +182,74 @@ code {
   padding: 2px 5px 2px 5px;
 
   text-decoration: none;
+}
+.topicSelector {
+  margin: 10px;
+}
+.topicSelectorHeader {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(243, 218, 186);
+}
+.dropDown {
+  width: 40%;
+  height: 30px;
+  font-size: 14px;
+}
+.headerSloth {
+  height: 100px;
+}
+.sideBarHeaderText {
+  font-size: 30px;
+  padding-top: 40px;
+  padding-right: 40px;
+  float: right;
+}
+
+.createArticle {
+  margin: 50px 10px 10px 10px;
+  width: 100%;
+}
+.addArticle {
+  margin: 50px auto 0 auto;
+  min-width: 250px;
+  width: 400px;
+  font-size: 20px;
+}
+
+.commentFooterTwo {
+  float: right;
+  margin-right: 5px;
+}
+.articleFooter {
+  margin-top: 10px;
+  border-top: 1px solid black;
+  height: 20px;
+  font-size: 12px;
+}
+
+.articleFooterOne {
+  float: left;
+  margin-right: 10px;
+  padding-top: 7px;
+}
+.articleFooterTwo {
+  float: left;
+  padding-top: 7px;
+}
+.articleFooterThree {
+  float: right;
+  padding-top: 7px;
+}
+.articleTitle {
+  height: 60px;
+  font-size: 20px;
+}
+.articleContent {
+  min-height: 300px;
+}
+
+.addCommentContainer {
+  width: 400px;
+  margin: auto;
 }

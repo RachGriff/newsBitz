@@ -5,6 +5,7 @@ import { getAllArticles, voteOnArticle } from "../../utils/api";
 import TopicSelector from "./topicSelector";
 import PropTypes from "prop-types";
 import AddNewArticle from "./addArticle";
+import SidebarHeader from "../shared/sidebarHeader";
 // import navigate from "@reach/router";
 
 class Home extends Component {
@@ -31,11 +32,17 @@ class Home extends Component {
         </div>
 
         <div className="sidebar-area" user={this.props.user}>
-          <TopicSelector onTopicSelect={this.getArticlesForTopic} />
-          <AddNewArticle
-            user={this.props.user}
-            onCreateArticle={this.onCreateArticle}
-          />
+          <div className="topicSelector">
+            <SidebarHeader title={"filter your articles"} />
+            <TopicSelector onTopicSelect={this.getArticlesForTopic} />
+          </div>
+          <div className="createArticle">
+            <SidebarHeader title={"write a new article"} />
+            <AddNewArticle
+              user={this.props.user}
+              onCreateArticle={this.onCreateArticle}
+            />
+          </div>
         </div>
       </div>
     );

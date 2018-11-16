@@ -11,10 +11,20 @@ const SingleComment = ({ user, onVote, onCommentDelete, comment }) => {
       {comment.body}
       {""} {"Created by:  " + comment.created_by.username}
       <br />
-      <Vote id={comment._id} numberOfVotes={comment.votes} onVote={onVote} />
-      {commentCreatedByLoggedInUser && (
-        <button onClick={() => onCommentDelete(comment._id)}>Delete</button>
-      )}
+      <div className="articleOverviewFooter">
+        <div className="articleOverviewFooterOne">
+          <Vote
+            id={comment._id}
+            numberOfVotes={comment.votes}
+            onVote={onVote}
+          />
+        </div>
+        <div className="commentFooterTwo">
+          {commentCreatedByLoggedInUser && (
+            <button onClick={() => onCommentDelete(comment._id)}>Delete</button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
