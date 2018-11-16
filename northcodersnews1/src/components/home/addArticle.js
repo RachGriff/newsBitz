@@ -14,7 +14,7 @@ class AddNewArticle extends Component {
         <form onSubmit={this.handleSubmit}>
           {!this.props.user && <div>Please log in</div>}
           <div>
-            <label htmlFor="title"> what's it about?</label>
+            <label htmlFor="title"> give it a name...</label>
           </div>
           <div>
             <input
