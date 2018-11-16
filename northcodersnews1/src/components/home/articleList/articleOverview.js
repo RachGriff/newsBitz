@@ -32,6 +32,3 @@ const ArticleOverview = props => {
   );
 };
 export default ArticleOverview;
-//link mankes a link out of title and will use the path in the app
-//router to take user to the article detail by changing the url to /article/:articleId
-//article overview is called from article list so vote func needs to be there.

@@ -4,7 +4,7 @@ import Home from "./components/home/home";
 import ArticleDetail from "./components/articleDetail/articleDetail";
 import { newLogin } from "./utils/api";
 import ErrorHandler from "./error";
-// import navigate from "@reach/router";
+
 class App extends Component {
   state = {
     user: null,

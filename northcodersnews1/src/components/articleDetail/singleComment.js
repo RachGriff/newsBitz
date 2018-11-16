@@ -30,4 +30,3 @@ const SingleComment = ({ user, onVote, onCommentDelete, comment }) => {
 };
 
 export default SingleComment;
-//delete

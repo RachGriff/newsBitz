@@ -32,7 +32,7 @@ class Login extends Component {
   handleChange = event => {
     const { value, id } = event.target;
     this.setState({
-      [id]: value //sets property with the name that is stored in id(in input) to the value. Generic.
+      [id]: value
     });
   };
 }

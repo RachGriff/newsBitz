@@ -9,7 +9,6 @@ class AddNewArticle extends Component {
     body: ""
   };
   render() {
-    //could use const disabled = !this.props.user; then use disabled in place of {!this.props.user}
     return (
       <div className="addArticle">
         <form onSubmit={this.handleSubmit}>
@@ -60,7 +59,6 @@ class AddNewArticle extends Component {
     event.preventDefault();
     let article = { ...this.state };
     if (
-      //make this drier? - func to check if input.trim ===""||null||!input etc
       article.title.trim() === "" ||
       article.belongs_to.trim() === "" ||
       article.body.trim() === ""
