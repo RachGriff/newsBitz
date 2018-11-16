@@ -6,7 +6,6 @@ import TopicSelector from "./topicSelector";
 import PropTypes from "prop-types";
 import AddNewArticle from "./addArticle";
 import SidebarHeader from "../shared/sidebarHeader";
-// import navigate from "@reach/router";
 
 class Home extends Component {
   state = {
@@ -80,6 +79,5 @@ Home.propTypes = {
   user: PropTypes.object,
   onLogin: PropTypes.func,
   onLogout: PropTypes.func
-}; //tells us that user will be passed props & this will be an obj,
-//but we also need to pass in a func to login component so that this can affect state at top.
+};
 export default Home;

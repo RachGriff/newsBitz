@@ -26,4 +26,3 @@ const Article = ({ user, article, onVote, onCommentDelete }) => {
   );
 };
 export default Article;
-//remember -not props.article.comments in CommentList because have deconstr

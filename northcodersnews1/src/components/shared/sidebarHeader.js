@@ -20,5 +20,3 @@ SidebarHeader.propTypes = {
 };
 
 export default SidebarHeader;
-//if there is not a user instantiate Login  - logically 'anding' variable with a component which is truthy,
-// so if thing at start is true, then component will render - so if not logged in, show login
