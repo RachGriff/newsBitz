@@ -20,9 +20,19 @@ class Vote extends Component {
 
     return (
       <div>
-        <button onClick={() => onClick("up")}>^</button>
+        <button
+          onClick={() => onClick("up")}
+          disabled={this.state.voteChange !== 0}
+        >
+          ^
+        </button>
         Votes:{this.props.numberOfVotes + this.state.voteChange}
-        <button onClick={() => onClick("down")}>v</button>
+        <button
+          onClick={() => onClick("down")}
+          disabled={this.state.voteChange !== 0}
+        >
+          v
+        </button>
       </div>
     );
   }
