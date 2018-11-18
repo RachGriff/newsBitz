@@ -6,6 +6,7 @@ import TopicSelector from "./topicSelector";
 import PropTypes from "prop-types";
 import AddNewArticle from "./addArticle";
 import SidebarHeader from "../shared/sidebarHeader";
+import Loading from "../shared/loading";
 
 class Home extends Component {
   state = {
@@ -20,6 +21,7 @@ class Home extends Component {
             onLogin={this.props.onLogin}
             user={this.props.user}
             onLogout={this.props.onLogout}
+            error={this.props.error}
           />
         </div>
         <div className={"main-area"}>
@@ -43,6 +45,7 @@ class Home extends Component {
             />
           </div>
         </div>
+        <Loading show={this.state.loading} />
       </div>
     );
   }

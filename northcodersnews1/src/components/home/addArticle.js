@@ -6,13 +6,14 @@ class AddNewArticle extends Component {
   state = {
     title: "",
     belongs_to: "",
-    body: ""
+    body: "",
+    error: null
   };
   render() {
+    const invalidInput = this.state.error === 1;
     return (
       <div className="addArticle">
         <form onSubmit={this.handleSubmit}>
-          {!this.props.user && <div>Please log in</div>}
           <div>
             <label htmlFor="title"> give it a name...</label>
           </div>
@@ -46,6 +47,11 @@ class AddNewArticle extends Component {
           </div>
           <button disabled={!this.props.user}>Add an article!</button>
         </form>
+        <hr />
+        {invalidInput && (
+          <div className="invalidInput">Please enter all fields</div>
+        )}
+        {!this.props.user && <div className="invalidInput">Please log in</div>}
       </div>
     );
   }
@@ -63,7 +69,9 @@ class AddNewArticle extends Component {
       article.belongs_to.trim() === "" ||
       article.body.trim() === ""
     ) {
-      alert("Please complete each field");
+      this.setState({
+        error: 1
+      });
     } else {
       article.created_by = this.props.user._id;
       addArticle(article).then(newArticle => {

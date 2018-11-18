@@ -4,6 +4,8 @@ import Article from "./article";
 import { getArticle, voteOnComment, deleteComment } from "../../utils/api";
 import AddNewComment from "./addComment";
 import SidebarHeader from "../shared/sidebarHeader";
+import { navigate } from "@reach/router";
+import Loading from "../shared/loading";
 
 class ArticleDetail extends Component {
   state = {
@@ -18,6 +20,7 @@ class ArticleDetail extends Component {
             onLogin={this.props.onLogin}
             user={this.props.user}
             onLogout={this.props.onLogout}
+            error={this.props.error}
           />
         </div>
         <div className={"main-area"}>
@@ -38,16 +41,21 @@ class ArticleDetail extends Component {
             belongs_to={this.state.article.id}
           />
         </div>
+        <Loading show={this.state.loading} />
       </div>
     );
   }
   componentDidMount() {
-    getArticle(this.props.articleId).then(article => {
-      this.setState({
-        article: article,
-        loading: false
+    getArticle(this.props.articleId)
+      .then(article => {
+        this.setState({
+          article: article,
+          loading: false
+        });
+      })
+      .catch(error => {
+        navigate("/badArticle", { replace: true });
       });
-    });
   }
 
   onCreateComment = comment => {

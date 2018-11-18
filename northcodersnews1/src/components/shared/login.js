@@ -1,27 +1,35 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Login extends Component {
   state = {
     username: ""
   };
   render() {
+    const invalidUserName = this.props.error === 1;
     return (
       <div className="loginContainer">
-        <form onSubmit={this.handleSubmit}>
-          <label className="loginLabel" htmlFor="username">
-            username:
-          </label>
-          <span className="loginOutline">
-            <input
-              className="loginInput"
-              onChange={this.handleChange}
-              id="username"
-              type="text"
-              value={this.state.username}
-            />
-          </span>
-          <button className="btn">Log in</button>
-        </form>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <label className="loginLabel" htmlFor="username">
+              username:
+            </label>
+            <span className="loginOutline">
+              <input
+                placeholder={"jessjelly"}
+                className="loginInput"
+                onChange={this.handleChange}
+                id="username"
+                type="text"
+                value={this.state.username}
+              />
+            </span>
+            <button className="btn">Log in</button>
+          </form>
+        </div>
+        {invalidUserName && (
+          <div className="invalidUserName">Invalid username</div>
+        )}
       </div>
     );
   }
@@ -36,5 +44,9 @@ class Login extends Component {
     });
   };
 }
-
+Login.propTypes = {
+  user: PropTypes.object,
+  onLogin: PropTypes.func,
+  error: PropTypes.number
+};
 export default Login;

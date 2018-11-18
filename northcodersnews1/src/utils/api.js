@@ -47,6 +47,7 @@ export const getArticle = async id => {
 
 export const newLogin = async username => {
   const { data } = await axios.get(`${BASE_URL}/users/${username}`);
+
   return data.user;
 };
 

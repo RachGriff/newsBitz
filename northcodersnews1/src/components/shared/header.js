@@ -5,7 +5,7 @@ import Logout from "./logout";
 import logo from "../../resources/images/logo.png";
 import { Link } from "@reach/router";
 
-const Header = ({ user, onLogin, onLogout }) => {
+const Header = ({ user, onLogin, onLogout, error }) => {
   return (
     <div className="header">
       <Link to="/">
@@ -14,7 +14,7 @@ const Header = ({ user, onLogin, onLogout }) => {
 
       <div className="title">newsBitz</div>
       <div className="loginLogout">
-        {!user && <Login onLogin={onLogin} />}
+        {!user && <Login onLogin={onLogin} error={error} />}
         {user && <Logout onLogout={onLogout} user={user} />}
       </div>
     </div>

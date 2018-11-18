@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
+
 const Logout = props => {
   return (
     <div className="logoutContainer">
@@ -9,7 +11,9 @@ const Logout = props => {
         alt="user avatar"
       />
       <div className="logoutDetails">
-        <div className="logoutUsername">{props.user.username}</div>
+        <div className="logoutUsername">
+          <Link to={"/user"}>{props.user.username}</Link>
+        </div>
         <button className="btn" onClick={props.onLogout}>
           log out
         </button>

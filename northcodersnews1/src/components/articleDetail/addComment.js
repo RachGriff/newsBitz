@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { addComment } from "../../utils/api";
 
 class AddNewComment extends Component {
-  state = { body: "" };
+  state = { body: "", error: null };
   render() {
+    const invalidInput = this.state.error === 1;
     return (
       <div className="addCommentContainer">
         <form onSubmit={this.handleSubmit}>
-          <div>{!this.props.user && <span>Please log in</span>}</div>
           <div>
             <label htmlFor="body" />
             Comment
@@ -26,6 +26,11 @@ class AddNewComment extends Component {
 
           <button disabled={!this.props.user}>Add a comment!</button>
         </form>
+        <hr />
+        {invalidInput && (
+          <div className="invalidInput">Please enter your comment</div>
+        )}
+        {!this.props.user && <div className="invalidInput">Please log in</div>}
       </div>
     );
   }
@@ -38,7 +43,7 @@ class AddNewComment extends Component {
     event.preventDefault();
     let comment = { ...this.state };
     if (comment.body.trim() === "") {
-      alert("Please complete comment field");
+      this.setState({ error: 1 });
     } else {
       comment.created_by = this.props.user._id;
       comment.belongs_to = this.props.belongs_to;
