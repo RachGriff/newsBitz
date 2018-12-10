@@ -7,7 +7,7 @@ You can see the site hosted at
 
 This site accesses API at `https://peaceful-temple-55135.herokuapp.com/api`
 
-Sourse for API at `https://github.com/RachGriff/BE2-northcoders-news`
+Source for API at `https://github.com/RachGriff/BE2-northcoders-news`
 
 #Getting Started<br/>
 To begin, clone the project, run `npm install`, and use npm start to run the app locally.
