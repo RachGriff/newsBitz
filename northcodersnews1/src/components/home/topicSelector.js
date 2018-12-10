@@ -1,7 +1,7 @@
 import React from "react";
 
 const TopicSelector = props => {
-  const topics = ["football", "coding", "cooking"];
+  const topics = props.topicsArray;
   const handleChange = event => {
     props.onTopicSelect(event.target.value);
   };

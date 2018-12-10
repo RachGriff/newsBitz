@@ -89,3 +89,8 @@ export const voteOnComment = async (id, direction) => {
 export const deleteComment = async id => {
   await axios.delete(`${BASE_URL}/comments/${id}`);
 };
+
+export const getAllTopics = async () => {
+  const result = await axios.get(`${BASE_URL}/topics`);
+  return result.data.topics;
+};

@@ -29,15 +29,16 @@ class AddNewArticle extends Component {
           <div>
             <label htmlFor="topic">what's the topic?</label>
           </div>
-          <TopicSelector onTopicSelect={this.onChangeTopic} />
+          <TopicSelector
+            onTopicSelect={this.onChangeTopic}
+            topicsArray={this.props.topicsArray}
+          />
           <div>
             <label htmlFor="body">your article</label>
           </div>
 
-          <div>
+          <div className="formRow">
             <textarea
-              rows="10"
-              cols="50"
               disabled={!this.props.user}
               value={this.state.body}
               onChange={this.handleChange}
